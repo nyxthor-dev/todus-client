@@ -1,0 +1,8 @@
+# Dependencias del cliente ToDus
+# Instalar con: pip install -r requirements.txt
+
+requests>=2.25
+tqdm>=4.50
+
+# Opcional (solo para desarrollo)
+# pytest>=7.0

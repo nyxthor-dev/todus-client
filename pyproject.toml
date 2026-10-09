@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "todus-client"
+version = "3.0.0"
+description = "Cliente S3 profesional con namespaces para el bucket público de ToDus"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "nyxthor-dev", email = "vm1008079@gmail.com"},
+]
+maintainers = [
+    {name = "nyxthor-dev", email = "vm1008079@gmail.com"},
+]
+keywords = ["s3", "todus", "cuba", "bucket", "aws", "namespaces", "cli", "telegram-bot"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: System :: Archiving",
+    "Topic :: System :: Filesystems",
+]
+
+dependencies = [
+    "requests>=2.25",
+    "tqdm>=4.50",
+]
+
+[project.optional-dependencies]
+yaml = ["pyyaml>=5.0"]
+telegram = ["python-telegram-bot>=20.0"]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1.0",
+    "build>=1.0",
+    "twine>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/nyxthor-dev/todus-client"
+Repository = "https://github.com/nyxthor-dev/todus-client"
+Issues = "https://github.com/nyxthor-dev/todus-client/issues"
+Documentation = "https://github.com/nyxthor-dev/todus-client#readme"
+Changelog = "https://github.com/nyxthor-dev/todus-client/releases"
+
+[project.scripts]
+todus = "todus.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["todus*"]
+exclude = ["tests*", "examples*"]
+
+[tool.setuptools.package-data]
+todus = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]  # line length manejado por formatter
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

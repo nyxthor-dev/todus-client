@@ -1,0 +1,8 @@
+# MKDocs Configuration (Draft)
+site_name: Todus Client Documentation
+theme:
+  name: material
+
+nav:
+  - Inicio: index.md
+  - API: api.md
